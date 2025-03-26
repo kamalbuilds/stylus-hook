@@ -1,0 +1,35 @@
+{
+  "name": "liquidity-shield",
+  "version": "0.1.0",
+  "description": "A Uniswap v4 hook that protects LPs by dynamically adjusting fees based on market volatility",
+  "main": "index.js",
+  "scripts": {
+    "build:stylus": "cargo build --release --target wasm32-unknown-unknown",
+    "export-abi": "cargo stylus export-abi",
+    "build:solidity": "forge build",
+    "build": "npm run build:solidity && npm run build:stylus && npm run export-abi",
+    "test:solidity": "forge test",
+    "test:rust": "cargo test",
+    "test": "npm run test:solidity && npm run test:rust",
+    "deploy:stylus": "node scripts/deploy_stylus.js",
+    "deploy:hook": "forge script script/DeployLiquidityShield.s.sol --rpc-url $RPC_URL --broadcast"
+  },
+  "keywords": [
+    "uniswap",
+    "v4",
+    "hook",
+    "stylus",
+    "arbitrum",
+    "defi",
+    "liquidity"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^6.9.0",
+    "@ethersproject/abi": "^5.7.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1"
+  }
+} 
