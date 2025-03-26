@@ -12,7 +12,8 @@
     "test:rust": "cargo test",
     "test": "npm run test:solidity && npm run test:rust",
     "deploy:stylus": "node scripts/deploy_stylus.js",
-    "deploy:hook": "forge script script/DeployLiquidityShield.s.sol --rpc-url $RPC_URL --broadcast"
+    "deploy:hook": "forge script script/DeployLiquidityShield.s.sol --rpc-url $RPC_URL --broadcast",
+    "start:operator": "ts-node operator/price_operator.ts"
   },
   "keywords": [
     "uniswap",
@@ -26,10 +27,24 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "ethers": "^6.9.0",
-    "@ethersproject/abi": "^5.7.0"
+    "@ethersproject/abi": "^5.7.0",
+    "ethers": "^6.9.0"
   },
   "devDependencies": {
-    "dotenv": "^16.3.1"
-  }
-} 
+    "dotenv": "^16.3.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamalbuilds/stylus-hook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kamalbuilds/stylus-hook/issues"
+  },
+  "homepage": "https://github.com/kamalbuilds/stylus-hook#readme"
+}
